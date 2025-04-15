@@ -1,0 +1,628 @@
+/* Contenedor de la cuadrícula de productos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Por defecto, 2 columnas */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px; /* Evita que se expanda demasiado */
+  margin: auto;
+}
+
+/* Máximo 4 productos por fila en pantallas grandes */
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas horizontales */
+    gap: 20px; /* Espaciado entre productos */
+  }
+}
+
+/* Máximo 2 productos por fila en dispositivos móviles */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas horizontales */
+    gap: 10px; /* Reduce el espacio entre productos */
+  }
+}
+
+/* Tarjeta de producto */
+.product-card {
+  background: linear-gradient(145deg, #ffe4e1, #ffc1cc); /* Degradado suave */
+  border-radius: 15px;
+  padding: 10px; /* Ajusta el padding general */
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(255, 105, 180, 0.5); /* Rosa suave */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Alineación vertical */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px; /* Espaciado reducido entre los elementos */
+  height: auto; /* Permite ajustar la altura según el contenido */
+  width: 250px; /* Ancho del contenedor */
+  height: 350px; /* Altura del contenedor */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(255, 105, 180, 0.3); /* Resplandor rosa */
+}
+
+/* Contenedor de la imagen del producto */
+.product-img-wrapper {
+  position: relative;
+  background: linear-gradient(145deg, #ffc1cc, #ffe4e1); /* Fondo degradado */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid rgba(255, 31, 31, 0.5); /* Borde morado suave */
+  overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+  height: 180px; /* Ajusta la altura de la imagen */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  margin-bottom: 5px; /* Reduce el margen inferior */
+}
+
+/* Imagen del producto */
+.product-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+  box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.5); /* Resplandor rosa */
+}
+
+/* Título del producto */
+.product-title {
+  font-size: 1rem; /* Ajusta el tamaño del título */
+  font-weight: bold;
+  color: #333333;
+  margin: 5px 0; /* Reduce el margen superior e inferior */
+  word-wrap: break-word; /* Permite que el texto se divida en varias líneas */
+  overflow-wrap: break-word; /* Similar a word-wrap, permite que el texto se ajuste */
+  white-space: normal; /* Asegura que el texto fluya en varias líneas */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  text-align: center;
+}
+
+/* Precio del producto */
+.product-price {
+  font-size: 0.9rem; /* Ajusta el tamaño del precio */
+  color: #ff69b4; /* Rosa vibrante */
+  font-weight: bold;
+  margin: 0; /* Elimina el margen superior e inferior */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  text-align: center;
+}
+
+/* Botón de detalles */
+.product-details-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #ff69b4, #ff1493); /* Degradado rosa */
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  border: none;
+}
+
+.product-details-btn:hover {
+  background: linear-gradient(
+    90deg,
+    #ff1493,
+    #c71585
+  ); /* Degradado más oscuro */
+  transform: scale(1.05);
+}
+
+/* Ícono de maximización */
+.view-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 105, 180, 0.8); /* Fondo rosa */
+  color: white;
+  padding: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-icon:hover {
+  background-color: rgba(255, 105, 180, 1); /* Fondo más vibrante */
+  transform: scale(1.2); /* Efecto de zoom */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Reduce el padding general */
+    gap: 5px; /* Reduce el espacio entre los elementos */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+  .product-img-wrapper {
+    margin-bottom: 1rem;
+    height: 150px; /* Reduce la altura de la imagen */
+    margin-bottom: 5px; /* Reduce el margen inferior */
+  }
+
+  .product-title,
+  .product-price,
+  .product-details-btn {
+    margin-bottom: 0.5rem;
+  }
+
+  .product-title {
+    font-size: 0.9rem; /* Reduce el tamaño del título */
+    margin: 5px 0; /* Reduce el margen superior e inferior */
+  }
+
+  .product-price {
+    font-size: 0.8rem; /* Reduce el tamaño del precio */
+    margin: 5px 0; /* Reduce el margen superior e inferior */
+  }
+
+  .product-details-btn {
+    padding: 8px 10px; /* Reduce el padding del botón */
+    font-size: 0.9rem; /* Reduce el tamaño del texto del botón */
+  }
+
+  .product-title {
+    margin-bottom: 90px; /* Reduce el espacio entre el título y el precio */
+  }
+
+  .product-price {
+    margin-top: 50px; /* Reduce el espacio entre el título y el precio */
+  }
+
+  .product-title {
+    margin-bottom: 2px; /* Reduce el espacio entre el título y el precio */
+  }
+
+  .product-price {
+    margin-top: -10px; /* Reduce el espacio entre el título y el precio */
+  }
+}
+
+/* estilo del titulo de la seccion */
+h2 {
+  font-family: "Cinzel", serif; /* Nueva fuente elegante con un toque clásico */
+  font-size: 2.8rem; /* Tamaño moderado con presencia */
+  color: #00000098; /* Negro para el texto */
+  text-align: center;
+  font-weight: 700; /* Negrita para dar énfasis */
+  letter-spacing: 1px; /* Espaciado suave entre letras */
+  padding: 12px 0;
+  margin-bottom: 30px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background: #d63384; /* Rosa suave para el subrayado */
+  transition: width 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+h2:hover {
+  color: #d63384; /* Rosa suave al pasar el cursor */
+}
+
+h2:hover::before {
+  width: 100%; /* El subrayado se expande al pasar el cursor */
+}
+
+/* Estilo del título de las secciones */
+h2.section-title {
+  font-family: "Cinzel", serif; /* Fuente elegante */
+  font-size: 2.5rem; /* Tamaño del texto */
+  color: #333; /* Color oscuro */
+  text-align: center; /* Centra el texto */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  position: relative; /* Necesario para los pseudoelementos */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+/* Líneas decorativas antes y después del título */
+h2.section-title::before,
+h2.section-title::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: #ff66b2; /* Color rosa */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+
+h2.section-title::before {
+  left: 10%; /* Línea a la izquierda */
+}
+
+h2.section-title::after {
+  right: 10%; /* Línea a la derecha */
+}
+
+/* Animación al pasar el cursor */
+h2.section-title:hover::before,
+h2.section-title:hover::after {
+  width: 80px; /* Expande las líneas */
+}
+
+h2.section-title:hover {
+  color: #ff66b2; /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  h2.section-title {
+    font-size: 2rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+  }
+
+  h2.section-title::before,
+  h2.section-title::after {
+    width: 40px; /* Reduce el tamaño de las líneas decorativas */
+  }
+}
+
+/* Importar la fuente Cinzel */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+
+.product-details-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #ff69b4, #ff1493); /* Degradado rosa */
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  border: none;
+}
+
+.product-details-btn:hover {
+  background: linear-gradient(90deg, #653bff5b, #ff43c79a);
+  transform: scale(1.05);
+}
+
+/* Contenedor de la imagen maximizada */
+.image-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Fondo oscuro detrás de la imagen */
+.overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* Permite cerrar al hacer clic */
+}
+
+/* Contenedor de la imagen maximizada */
+.overlay-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen maximizada */
+.expanded-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* Botón de cierre (minimización) */
+.close-btn {
+  position: absolute;
+  top: -50px; /* Mueve el botón a la parte superior */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta el centrado */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 100%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 1100;
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+/* Ícono de maximización en las imágenes */
+.view-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-icon:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Diseño vertical para móviles */
+@media (max-width: 768px) {
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-img-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .product-title,
+  .product-price,
+  .product-details-btn {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Quitar subrayado de los textos */
+.product-title,
+.product-price,
+.product-details-btn {
+  text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Estilo del título de las secciones */
+h2.section-title {
+  font-family: "Cinzel", serif; /* Fuente elegante */
+  font-size: 2.5rem; /* Tamaño del texto */
+  color: #333; /* Color oscuro */
+  text-align: center; /* Centra el texto */
+  font-weight: 700; /* Negrita */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  position: relative; /* Necesario para los pseudoelementos */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+/* Líneas decorativas antes y después del título */
+h2.section-title::before,
+h2.section-title::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: #ff66b2; /* Color rosa */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+
+h2.section-title::before {
+  left: 10%; /* Línea a la izquierda */
+}
+
+h2.section-title::after {
+  right: 10%; /* Línea a la derecha */
+}
+
+/* Animación al pasar el cursor */
+h2.section-title:hover::before,
+h2.section-title:hover::after {
+  width: 80px; /* Expande las líneas */
+}
+
+h2.section-title:hover {
+  color: #ff66b2; /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Subrayado animado en dispositivos móviles */
+@media (max-width: 768px) {
+  h2.section-title {
+    font-size: 2rem; /* Reduce el tamaño del texto */
+    margin-bottom: 40px; /* Aumenta el espacio inferior */
+  }
+
+  h2.section-title::before,
+  h2.section-title::after {
+    display: none; /* Oculta las líneas decorativas en móviles */
+  }
+
+  h2.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #ff66b2; /* Color rosa */
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+  }
+
+  h2.section-title:hover::after {
+    width: 100%; /* Expande el subrayado al pasar el cursor */
+  }
+}
+
+/* Contenedor del carrusel */
+.product-carousel {
+  flex: 1;
+  max-width: 100%; /* Ocupa todo el ancho disponible */
+  position: relative;
+  margin: 20px auto; /* Espaciado superior e inferior */
+  overflow: hidden; /* Oculta las imágenes fuera del área visible */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 4 / 3; /* Ajusta la proporción para hacerlo más alto */
+  /* Si prefieres una altura fija, usa esta línea en lugar de aspect-ratio */
+  /* height: 400px; */
+}
+
+/* Ajustar las imágenes del carrusel */
+.carousel-img {
+  flex-shrink: 0; /* Evita que las imágenes se reduzcan */
+  width: 100%; /* Cada imagen ocupa el 100% del ancho del carrusel */
+  height: 100%; /* Ocupa todo el alto del carrusel */
+  object-fit: cover; /* Asegura que la imagen se ajuste sin recortarse */
+  border-radius: 15px; /* Mantiene los bordes redondeados */
+}
+
+/* Ajustes para pantallas grandes (PC) */
+@media (min-width: 1024px) {
+  .product-img-wrapper {
+    height: 250px; /* Aumenta la altura de la imagen */
+    margin-bottom: 15px; /* Aumenta el margen inferior */
+  }
+
+  .product-title {
+    font-size: 1.2rem; /* Tamaño más grande para el título */
+    margin: 10px 0; /* Aumenta el margen superior e inferior */
+  }
+
+  .product-price {
+    font-size: 1.1rem; /* Tamaño más grande para el precio */
+    margin: 10px 0; /* Aumenta el margen superior e inferior */
+  }
+
+  .product-title {
+    margin-bottom: 5px; /* Ajusta el espacio entre el título y el precio */
+  }
+
+  .product-price {
+    margin-top: 5px; /* Ajusta el espacio entre el título y el precio */
+  }
+
+  .product-img-wrapper {
+    height: 200px; /* Aumenta la altura de la imagen */
+  }
+
+  .product-title {
+    font-size: 1.2rem; /* Aumenta el tamaño del título */
+  }
+
+  .product-price {
+    font-size: 1rem; /* Aumenta el tamaño del precio */
+  }
+}
+
+/* Animación para el título */
+@keyframes slideInFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Desliza desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Posición final */
+  }
+}
+
+/* Aplica la animación al h2 */
+.section-title {
+  animation: slideInFade 0.8s ease-out forwards; /* Añade 'forwards' para mantener el estado final */
+}
+
+/* Elimina los estilos del botón "Ver más" */
+.btn-ver-mas {
+  display: none; /* O elimina completamente esta clase */
+}
+
+/* Contenedor del buscador */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* Espaciado superior e inferior */
+  gap: 10px; /* Espaciado entre el input y el botón */
+}
+
+/* Campo de entrada del buscador */
+.search-input {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #e91e63;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #ff80ab;
+}
+
+/* Botón del buscador */
+.search-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #e91e63;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #d81b60;
+  transform: scale(1.05);
+}
+
+/* Mensaje de error */
+.search-error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}

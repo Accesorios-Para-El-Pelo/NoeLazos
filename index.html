@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noe Lazos</title>
+    <link rel="icon" type="image/png" href="images/logo1.png" />
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Script principal -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Spinner de carga -->
+    <div class="loader"></div>
+
+    <!-- Encabezado -->
+    <header class="main-header">
+      <div class="header-container">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="images/logo1.png" alt="logo" class="logo-img" />
+        </div>
+
+        <!-- Título y subtítulo -->
+        <div class="header-text">
+          <h1 class="header-title">Accesorios Para El Cabello</h1>
+          <p class="header-subtitle">
+            ¡Encuentra los mejores accesorios para tu estilo!
+          </p>
+        </div>
+
+        <!-- Menú de navegación -->
+        <nav class="mini-navbar">
+          <ul class="mini-navbar-menu">
+            <li><a href="#inicio" class="active">Inicio</a></li>
+            <li><a href="#lazos">Lazos</a></li>
+            <li><a href="#colitas">Colitas</a></li>
+            <li><a href="#scrunchies">Scrunchies</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+      <section id="inicio" class="section active">
+        <!-- Contenido de la sección Inicio -->
+      </section>
+
+      <section id="lazos" class="section">
+        <h2 class="section-title">Lazos y Moños</h2>
+        <!-- Productos -->
+        <div class="product-grid"></div>
+      </section>
+
+      <section id="colitas" class="section">
+        <h2 class="section-title">Colitas</h2>
+        <!-- Productos -->
+        <div class="product-grid"></div>
+      </section>
+
+      <section id="scrunchies" class="section">
+        <h2 class="section-title">Scrunchies</h2>
+        <!-- Productos -->
+        <div class="product-grid"></div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a
+          href="https://wa.me/5491151012889"
+          target="_blank"
+          aria-label="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      <p class="footer-text">
+        © 2025 Noe Lazos. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <button aria-label="Cerrar imagen maximizada" class="close-btn">
+      <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+    </button>
+  </body>
+</html>

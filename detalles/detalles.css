@@ -1,0 +1,485 @@
+/* Variables CSS */
+:root {
+  --primary-color: #e91e63; /* Rosa vibrante */
+  --secondary-color: #f8bbd0; /* Rosa claro */
+  --accent-color: #ff80ab; /* Rosa pastel */
+  --background-gradient: linear-gradient(
+    220deg,
+    #ffe4e1,
+    #f8bbd0
+  ); /* Degradado suave */
+  --font-family: "Poppins", sans-serif;
+  --transition-speed: 0.3s;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--background-gradient);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Encabezado */
+.mini-header {
+  display: flex;
+  flex-direction: column; /* Apila el logo, título y menú verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  padding: 25px 15px; /* Ajusta el espaciado interno */
+  box-shadow: 0px 4px 10px var(--shadow-color);
+  z-index: 1000;
+}
+
+/* Logo */
+.mini-logo {
+  display: flex;
+  justify-content: center; /* Centra el logo horizontalmente */
+  align-items: center;
+  margin-bottom: 10px; /* Espaciado entre el logo y el título */
+}
+
+.mini-logo-img {
+  height: 50px; /* Reduce el tamaño del logo */
+  width: auto;
+}
+
+/* Título del encabezado */
+.mini-header-title {
+  font-size: 2rem; /* Tamaño del texto del título */
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 15px; /* Espaciado entre el título y el menú */
+  animation: fadeInSlide 1s ease-out; /* Animación de entrada */
+}
+
+/* Menú */
+.mini-navbar {
+  display: flex;
+  justify-content: center; /* Centra el menú horizontalmente */
+  align-items: center; /* Centra los textos verticalmente */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+  gap: 20px; /* Espaciado entre los elementos del menú */
+  padding: 15px 20px; /* Aumenta el padding interno */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  ); /* Fondo semitransparente */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Borde para remarcar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  max-width: 100%; /* Asegura que el menú no sobresalga del contenedor */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+/* Enlaces del menú */
+.mini-navbar-menu {
+  display: flex; /* Mantiene el diseño horizontal */
+  justify-content: center; /* Centra los enlaces horizontalmente */
+  align-items: center; /* Centra los textos verticalmente */
+  gap: 20px; /* Espaciado entre los enlaces */
+  list-style: none; /* Elimina los estilos de lista */
+  margin: 0;
+  padding: 0;
+}
+
+.mini-navbar-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px; /* Aumenta el tamaño del texto */
+  padding: 12px 18px; /* Ajusta el padding interno */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: color var(--transition-speed), background var(--transition-speed);
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto es muy largo */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+/* Resaltado del enlace activo */
+.mini-navbar-menu a.active {
+  background-color: rgba(255, 255, 255, 0.3); /* Fondo del resaltado */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Borde del resaltado */
+  box-sizing: border-box; /* Asegura que el borde no sobresalga */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .mini-navbar {
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+    padding: 10px; /* Ajusta el padding interno */
+  }
+
+  .mini-navbar-menu {
+    justify-content: center; /* Mantiene los enlaces centrados */
+    gap: 15px; /* Reduce el espacio entre los enlaces */
+  }
+
+  .mini-navbar-menu a {
+    font-size: 14px; /* Reduce el tamaño del texto */
+    padding: 8px 12px; /* Ajusta el padding interno */
+  }
+
+  .mini-header-title {
+    font-size: 1.8rem; /* Reduce el tamaño del título */
+  }
+}
+
+/* Responsividad para pantallas muy pequeñas (360px de ancho) */
+@media (max-width: 360px) {
+  .mini-navbar {
+    padding: 8px; /* Reduce el padding interno */
+  }
+
+  .mini-navbar-menu a {
+    font-size: 12px; /* Reduce aún más el tamaño del texto */
+    padding: 6px 8px; /* Ajusta el padding interno */
+  }
+
+  .mini-header-title {
+    font-size: 1.5rem; /* Reduce aún más el tamaño del título */
+  }
+}
+
+/* Contenedor Principal */
+.producto-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  background: linear-gradient(145deg, #f8bbd0, #ffe4e1);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #ff80ab;
+  box-shadow: 0 6px 15px var(--shadow-color);
+  margin: 30px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el efecto */
+}
+
+.producto-container:hover {
+  transform: translateY(-10px); /* Eleva la tarjeta */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Desactivar animación en dispositivos móviles */
+@media (max-width: 768px) {
+  .producto-container:hover {
+    transform: none; /* Elimina la elevación */
+    box-shadow: 0 6px 15px var(--shadow-color); /* Mantiene la sombra original */
+  }
+}
+
+/* Miniaturas */
+.miniaturas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.miniatura {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.miniatura:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+.miniatura.active {
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Contenedor de la imagen principal */
+.imagen-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Oculta el contenido que se sale del contenedor */
+  border-radius: 15px;
+  border: 2px solid #ff80ab;
+  background: linear-gradient(145deg, #ffe4e1, #f8bbd0); /* Fondo degradado */
+  box-shadow: 0 6px 15px var(--shadow-color); /* Sombra para resaltar */
+  position: relative;
+}
+
+/* Imagen dentro del contenedor */
+.imagen-principal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Transición suave para el zoom */
+  cursor: zoom-in; /* Cambia el cursor al pasar sobre la imagen */
+}
+
+/* Zoom activo */
+.imagen-principal.zoom img {
+  transform: scale(2); /* Aplica el zoom */
+  cursor: zoom-out; /* Cambia el cursor al hacer zoom */
+}
+
+/* Detalles del Producto */
+.detalles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left; /* Alinea todo el texto a la izquierda */
+}
+
+.detalles h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: left; /* Asegura que el título también esté alineado a la izquierda */
+}
+
+.detalles h2 {
+  font-size: 2.1rem; /* Mismo tamaño que un h1 */
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: left; /* Asegura que el título también esté alineado a la izquierda */
+  border-bottom: 2px solid var(--accent-color); /* Línea decorativa debajo del título */
+  padding-bottom: 5px; /* Espaciado entre el texto y la línea */
+}
+
+.descripcion {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  text-align: left; /* Alinea la descripción a la izquierda */
+}
+
+.precio {
+  font-size: 2rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  text-align: left; /* Alinea el precio a la izquierda */
+}
+
+.atributos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left; /* Alinea los atributos a la izquierda */
+}
+
+.atributo {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #444;
+  text-align: left; /* Asegura que cada atributo esté alineado a la izquierda */
+}
+
+.atributo i {
+  margin-right: 10px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.atributo i.fa-bow {
+  font-size: 1.8rem; /* Ajusta el tamaño del ícono de moño */
+}
+
+/* Ícono de "Tela" */
+.atributo i.fa-scroll {
+  font-size: 1.8rem; /* Ajusta el tamaño del ícono de pergamino */
+}
+
+/* Botón de Compra */
+.btn-comprar {
+  position: relative;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  background: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  overflow: hidden; /* Oculta el brillo fuera del botón */
+}
+
+.btn-comprar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Empieza fuera del botón */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn-comprar:hover::before,
+.btn-comprar:active::before {
+  left: 100%; /* Mueve el brillo de izquierda a derecha */
+  transition: all 0.5s ease; /* Suaviza el movimiento */
+}
+
+.btn-comprar i {
+  z-index: 2; /* Asegura que el ícono esté por encima del brillo */
+}
+
+.btn-comprar span {
+  z-index: 2; /* Asegura que el texto esté por encima del brillo */
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+  width: 100%;
+  box-shadow: 0 -4px 10px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer .social-icons a {
+  color: #ffffff;
+  font-size: 2rem;
+  transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.footer .social-icons a:hover {
+  color: var(--secondary-color);
+  transform: scale(1.2);
+}
+
+.footer-text {
+  font-size: 1rem;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .producto-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .miniaturas {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .detalles {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .producto-container {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .miniatura {
+    width: 70px;
+    height: 70px;
+  }
+
+  .detalles h1 {
+    font-size: 2rem;
+  }
+
+  .precio {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .producto-container {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .miniatura {
+    width: 60px;
+    height: 60px;
+  }
+
+  .detalles h1 {
+    font-size: 1.8rem;
+  }
+
+  .precio {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animación para el título */
+@keyframes slideInFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Desliza desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Posición final */
+  }
+}
+
+/* Aplica la animación al h2 */
+.titulo {
+  animation: slideInFade 0.8s ease-out; /* Duración y suavidad de la animación */
+  opacity: 0; /* Oculto inicialmente */
+}
+
+/* Animación para el título */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Desliza desde arriba */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Posición final */
+  }
+}
